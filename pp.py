@@ -1,4 +1,2 @@
-s = {'a': 'a'}
-d = {'v': 'v'}
-c = s+d
-print(c)
+import os
+print(os.environ.get('HOSTTYPE'))
