@@ -16,6 +16,7 @@ def states_list():
     """Displays list of all State objects in DBStorage.
     """
     states = storage.all("State")
+    print(states)
     return render_template("7-states_list.html", states=states)
 
 
