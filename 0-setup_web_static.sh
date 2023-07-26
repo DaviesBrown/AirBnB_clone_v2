@@ -11,7 +11,7 @@ sudo mkdir -p /data/web_static/shared
 sudo touch /data/web_static/releases/test/index.html
 
 # Print Welcome message
-echo "Welcome to my site!"  >> /data/web_static/releases/test/index.html
+sudo echo "Welcome to my site!"  | sudo tee /data/web_static/releases/test/index.html
 
 # Check if directory current exist
 if [ -d "/data/web_static/current" ]

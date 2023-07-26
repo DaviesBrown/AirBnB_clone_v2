@@ -57,6 +57,5 @@ def deploy():
     deploys function do_pack and do_deploy.
     """
     path = do_pack()
-    if path:
-        do_deploy(path)
-    return False
+    if os.path.exists(path):
+        return do_deploy(path)

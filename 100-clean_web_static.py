@@ -14,11 +14,14 @@ def do_clean(number=0):
 
     number = int(number)
 
-    if number == 0:
+    if number < 0:
+        return
+    elif number == 0 or number == 1:
         numbers = 1
     else:
-        numbers = number
+        numbers = number + 1
 
-    local('cd versions ; ls -t | head -n -{} | xargs rm -rf'.format(numbers))
+    local('cd versions ; ls -t | tail -n +{} | xargs rm -rf'.format(numbers))
     path = '/data/web_static/releases'
-    run('cd {} ; ls -t | head -n -{} | xargs rm -rf'.format(path, numbers))
+    with cd(path):
+        sudo('cd {} ; ls -t | head -n +{} | xargs rm -rf'.format(path, numbers))
